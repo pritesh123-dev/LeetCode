@@ -10,7 +10,7 @@
  */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        // base case
+        // corner case
         if(head.next == null){
             return null;
         }
@@ -21,7 +21,7 @@ class Solution {
             curr = curr.next;
             size++;
         }
-        // second base case
+        // second corner case
         if(n == size){
             return head.next;
         }
