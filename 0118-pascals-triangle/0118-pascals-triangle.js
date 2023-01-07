@@ -3,20 +3,22 @@
  * @return {number[][]}
  */
 var generate = function(numRows) {
-    var output = [];
-
-    for(var i = 0; i < numRows; i++) {
-        output[i] = [];
+    
+    let opt = [];
+    
+    for(let i = 0; i < numRows; i++) {
+        opt[i] = [];
     }
-
+    
     for(i = 0; i < numRows; i++) {
-        output[i][0] = 1;
-        output[i][i] = 1;
+        opt[i][0] = 1;
+        opt[i][i] = 1;
     }
+    
     for(i = 2; i < numRows; i++) {
-        for(var j = 1; j < i; j++) {
-            output[i][j] = output[i-1][j-1] + output[i-1][j];
+        for(let j = 1; j < i; j++) {
+            opt[i][j] = opt[i-1][j-1] + opt[i-1][j];
         }
     }
-    return output;
+    return opt;
 };
