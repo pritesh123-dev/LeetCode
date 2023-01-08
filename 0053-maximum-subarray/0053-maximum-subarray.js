@@ -9,9 +9,11 @@ var maxSubArray = function(nums) {
     
     for(let i = 0; i < nums.length; i++) {
         sum += nums[i];
+        
         if(sum > maxVal) {
             maxVal = sum;
         }
+        
         if(sum < 0) {
             sum = 0;
         }
