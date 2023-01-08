@@ -6,8 +6,8 @@ var nextPermutation = function(nums) {
     
     for(let i = nums.length-2; i >= 0; i--) {
         if(nums[i] < nums[i+1]) {
-            const largeNumber = findLargestNumber(i);
-            swapTheArray(i, largeNumber);
+            const large = findLargest(i);
+            swapAnArray(i, large);
             reverseAnArray(i+1);
             return;
         }
@@ -15,25 +15,23 @@ var nextPermutation = function(nums) {
     
     nums.reverse();
     
-    function findLargestNumber(index) {
-        
-        for(i = nums.length-1; i > index; i--) {
-            if(nums[i] > nums[index]) {
+    function findLargest(idx) {
+        for(i = nums.length-1; i > idx; i--) {
+            if(nums[i] > nums[idx]) {
                 return i;
             }
         }
     }
     
-    function swapTheArray(i, j) {
+    function swapAnArray(i, j) {
         [nums[i], nums[j]] = [nums[j], nums[i]];
     }
     
-    function reverseAnArray(idx) {
-        let start = idx;
+    function reverseAnArray(z) {
+        let start = z;
         let end = nums.length-1;
-        
         while(start < end) {
-            swapTheArray(start, end);
+            swapAnArray(start, end);
             start++;
             end--;
         }
