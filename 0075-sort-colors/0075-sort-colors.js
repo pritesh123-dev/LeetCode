@@ -6,16 +6,17 @@ var sortColors = function(nums) {
     let first = 0;
     let curr = 0;
     let size = nums.length-1;
+    let temp;
     
     while(curr <= size) {
         
         if(nums[curr] == 0) {
-            let temp = nums[curr];
+            temp = nums[curr];
             nums[curr++] = nums[first];
             nums[first++] = temp;
         }
         else if(nums[curr] == 2) {
-            let temp = nums[curr];
+            temp = nums[curr];
             nums[curr] = nums[size];
             nums[size--] = temp;
         }
